@@ -10,12 +10,12 @@ export default {
       root: "pages/subpage/news",
       name: "新闻",
       pages:["index"]
-    },
+    }, */
     {
       root: "pages/subpage/document",
       name: "手册",
-      pages:["index"]
-    }, */
+      pages: ["index"],
+    },
     {
       root: "pages/subpage/littleclass",
       name: "小课堂",

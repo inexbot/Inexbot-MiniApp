@@ -33,7 +33,11 @@ export default function Index(props) {
           url: "/pages/subpage/littleclass/index",
         });
         break;
-
+      case 1:
+        Taro.navigateTo({
+          url: "/pages/subpage/document/index",
+        });
+        break;
       default:
         break;
     }
