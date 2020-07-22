@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Swiper, SwiperItem, ScrollView } from "@tarojs/components";
+import {
+  View,
+  Text,
+  Swiper,
+  SwiperItem,
+  ScrollView,
+  Image,
+} from "@tarojs/components";
 import { AtButton, AtSearchBar, AtGrid, AtListItem, AtList } from "taro-ui";
 import "./index.less";
 import { requestNews, requestVideo, requestDocument } from "../../request/api";
@@ -20,6 +27,16 @@ export default function Index(props) {
     setSearchBarValue(value);
   };
   const clickButton = (item, index) => {
+    switch (index) {
+      case 0:
+        Taro.navigateTo({
+          url: "/pages/subpage/littleclass/index",
+        });
+        break;
+
+      default:
+        break;
+    }
     return;
   };
   const clickSwiper = (aid) => {
@@ -88,7 +105,7 @@ export default function Index(props) {
             onClick={clickVideo.bind(this, value.sort)}
             key={kk}
           >
-            <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
+            <Image src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
             <Text>{value.name}</Text>
           </View>
         );
