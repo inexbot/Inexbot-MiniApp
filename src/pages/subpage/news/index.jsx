@@ -27,7 +27,7 @@ function News(props) {
       let nl = [];
       newslist.forEach((value, index, array) => {
         // 得到value.title(string),value.litpic(url-string)
-        console.log(value);
+        console.log(value,index,array);
         let timeStamp = value.sortrank;
         let date = new Date(timeStamp * 1000);
         let year = date.getFullYear();
@@ -35,13 +35,15 @@ function News(props) {
         let day = date.getDate();
         let dd = `${year}-${month}-${day}`;
         let con = (
-          <AtCard
-            title={value.title}
-            extra={dd}
-            onClick={clickNews.bind(this, value.id)}
-          >
-            <Image src={value.litpic} />
-          </AtCard>
+          <view style={{ marginBottom:'10px' }} key={index+1}>
+            <AtCard
+              title={value.title}
+              extra={dd}
+              onClick={clickNews.bind(this, value.id)}
+            >
+              <Image src={value.litpic}/>
+            </AtCard>
+          </view>
         );
         nl.push(con);
       });
