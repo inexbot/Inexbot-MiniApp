@@ -53,6 +53,16 @@ export default function Index(props) {
     }
     return;
   };
+  const clickClassMore = () => {
+    Taro.navigateTo({
+      url: "/pages/subpage/littleclass/index",
+    });
+  };
+  const clickDocumentMore = () => {
+    Taro.navigateTo({
+      url: "/pages/subpage/document/index",
+    });
+  };
   const clickSwiper = (aid) => {
     console.log(aid);
   };
@@ -124,7 +134,10 @@ export default function Index(props) {
             onClick={clickVideo.bind(this, value.sort)}
             key={kk}
           >
-            <Image className="video-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
+            <Image
+              className="video-img"
+              src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
+            />
             <Text className="video-tit">{value.name}</Text>
           </View>
         );
@@ -150,19 +163,26 @@ export default function Index(props) {
             onClick={clickDocument.bind(this, value.link)}
             note={`版本${value.version}`}
             key={kk}
-          >
-            </AtListItem>
+          ></AtListItem>
         );
         kk++;
       });
-      let list = <AtList><Image className="news-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png" />{listitem}</AtList>;
+      let list = (
+        <AtList>
+          <Image
+            className="news-img"
+            src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png"
+          />
+          {listitem}
+        </AtList>
+      );
       setDocumentList(list);
     }
     fechData();
   }, []);
-  const scrollVideo = (value) =>{
-    console.log(value)
-  }
+  const scrollVideo = (value) => {
+    console.log(value);
+  };
   return (
     <View className="index">
       <AtSearchBar
@@ -208,14 +228,32 @@ export default function Index(props) {
           },
         ]}
         onClick={clickButton}
-        style={{marginTop: 20}}
+        style={{ marginTop: 20 }}
       />
-      <View className="nbt-tit">纳博特小课堂
-      <Image className="more-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png" />
+      <View className="nbt-tit">
+        纳博特小课堂
+        <Image
+          className="more-img"
+          src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png"
+          onClick={clickClassMore}
+        />
       </View>
-      <ScrollView scrollX={true} scrollWithAnimation onScroll={scrollVideo} className="index-videos">{videoList}</ScrollView>
-      <View className="nbt-tit">使用手册
-      <Image className="more-img" style={{left: "68%"}} src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png" />
+      <ScrollView
+        scrollX={true}
+        scrollWithAnimation
+        onScroll={scrollVideo}
+        className="index-videos"
+      >
+        {videoList}
+      </ScrollView>
+      <View className="nbt-tit">
+        使用手册
+        <Image
+          className="more-img"
+          style={{ left: "68%" }}
+          src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png"
+          onClick={clickDocumentMore}
+        />
       </View>
       <View className="index-document">{documentList}</View>
     </View>
