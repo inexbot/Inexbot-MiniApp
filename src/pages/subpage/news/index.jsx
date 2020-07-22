@@ -3,11 +3,23 @@ import { Image, Text, View } from "@tarojs/components";
 import "./index.less";
 import { requestNews } from "../../../request/api";
 import Taro from "@tarojs/taro";
-import { AtCard } from "taro-ui";
+import { AtCard, AtActivityIndicator } from "taro-ui";
 
 function News(props) {
-  const [newsList, setNewsList] = useState(<Text>加载中</Text>);
+  const [newsList, setNewsList] = useState(
+    <AtActivityIndicator
+      isOpened
+      content="加载中"
+      mode="center"
+    ></AtActivityIndicator>
+  );
   // 新闻
+  const clickNews = (id) => {
+    console.log(id);
+    Taro.navigateTo({
+      url: `/pages/subpage/news/context?id=${id}`,
+    });
+  };
   useEffect(() => {
     async function fechData() {
       let NewsRes = await requestNews(1, 50);
@@ -15,6 +27,7 @@ function News(props) {
       let nl = [];
       newslist.forEach((value, index, array) => {
         // 得到value.title(string),value.litpic(url-string)
+        console.log(value);
         let timeStamp = value.sortrank;
         let date = new Date(timeStamp * 1000);
         let year = date.getFullYear();
@@ -22,7 +35,11 @@ function News(props) {
         let day = date.getDate();
         let dd = `${year}-${month}-${day}`;
         let con = (
-          <AtCard title={value.title} extra={dd}>
+          <AtCard
+            title={value.title}
+            extra={dd}
+            onClick={clickNews.bind(this, value.id)}
+          >
             <Image src={value.litpic} />
           </AtCard>
         );

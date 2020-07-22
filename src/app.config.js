@@ -1,15 +1,15 @@
 export default {
   pages: ["pages/index/index"],
   subPackages: [
-    /* {
+    {
       root: "pages/subpage/about",
       name: "纳博特",
-      pages:["index"]
-    }, */
+      pages: ["index"],
+    },
     {
       root: "pages/subpage/news",
       name: "新闻",
-      pages: ["index"],
+      pages: ["index", "context"],
     },
     {
       root: "pages/subpage/document",

@@ -43,6 +43,11 @@ export default function Index(props) {
           url: "/pages/subpage/news/index",
         });
         break;
+      case 3:
+        Taro.navigateTo({
+          url: "/pages/subpage/about/index",
+        });
+        break;
       default:
         break;
     }
@@ -52,6 +57,11 @@ export default function Index(props) {
     console.log(aid);
   };
   const clickDocument = (url) => {
+    Taro.showLoading({
+      title: "加载中，请稍后",
+      icon: "loading",
+      mask: true,
+    });
     Taro.downloadFile({
       url: url,
       success: function (res) {
@@ -59,7 +69,7 @@ export default function Index(props) {
         Taro.openDocument({
           filePath: filePath,
           success: function (res) {
-            console.log("打开文档成功");
+            Taro.hideLoading();
           },
         });
       },

@@ -25,27 +25,20 @@ export function requestNews(page, perpage) {
 
 export function requestNewsBody(aid) {
   let where = JSON.stringify([["aid", "=", aid]]);
-  let order = '["weight DESC"]';
-  Taro.request({
+  const res = Taro.request({
     url: url,
     method: "POST",
     header: { "Content-Type": "application/x-www-form-urlencoded" },
     data: {
       s: "App.SuperTable.FreeQuery",
       app_key: app_key,
-      model_name: "dede_archives",
+      model_name: "dede_addonarticle",
       where: where,
-      order: order,
-      page: page,
-      perpage: perpage,
-    },
-    success: (res) => {
-      return res;
-    },
-    fail: (res) => {
-      return res;
+      page: 1,
+      perpage: 100,
     },
   });
+  return res;
 }
 
 export function requestDocument(page, perpage) {

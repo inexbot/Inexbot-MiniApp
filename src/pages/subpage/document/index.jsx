@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "@tarojs/components";
-import { AtListItem, AtList } from "taro-ui";
+import { AtListItem, AtList, AtActivityIndicator } from "taro-ui";
 import "./index.less";
 import { requestDocument } from "../../../request/api";
 import Taro from "@tarojs/taro";
 
 function Document() {
-  const [documentList, setDocumentList] = useState(<Text>加载中</Text>);
+  const [documentList, setDocumentList] = useState(
+    <AtActivityIndicator
+      isOpened
+      content="加载中"
+      mode="center"
+    ></AtActivityIndicator>
+  );
   const clickDocument = (url) => {
+    Taro.showLoading({
+      title: "加载中，请稍后",
+      icon: "loading",
+      mask: true,
+    });
     Taro.downloadFile({
       url: url,
       success: function (res) {
@@ -15,6 +26,7 @@ function Document() {
         Taro.openDocument({
           filePath: filePath,
           success: function (res) {
+            Taro.hideLoading();
             console.log("打开文档成功");
           },
         });
