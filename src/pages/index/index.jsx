@@ -39,11 +39,14 @@ export default function Index(props) {
       },
     });
   };
-  const clickVideo = (url) => {
+  const clickVideo = (num) => {
+    console.log(num);
     Taro.navigateToMiniProgram({
       appId: "wx7564fd5313d24844",
+      path: `pages/video/video?page=${num}&avid=80574679`,
     });
   };
+  // 新闻
   useEffect(() => {
     async function fechData() {
       let NewsRes = await requestNews(1, 3);
@@ -70,6 +73,7 @@ export default function Index(props) {
     }
     fechData();
   }, []);
+  // 视频
   useEffect(() => {
     async function fechData() {
       let videoRes = await requestVideo(1, 4);
@@ -81,7 +85,7 @@ export default function Index(props) {
         let newv = (
           <View
             className="index-video-context"
-            onClick={clickVideo.bind(this, value.link)}
+            onClick={clickVideo.bind(this, value.sort)}
             key={kk}
           >
             <img src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
@@ -95,6 +99,7 @@ export default function Index(props) {
     }
     fechData();
   }, []);
+  // 文档
   useEffect(() => {
     async function fechData() {
       let documentRes = await requestDocument(1, 4);
