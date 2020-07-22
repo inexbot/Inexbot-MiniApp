@@ -163,19 +163,13 @@ export default function Index(props) {
             onClick={clickDocument.bind(this, value.link)}
             note={`版本${value.version}`}
             key={kk}
-          ></AtListItem>
+            thumb="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png"
+            arrow="right"
+          />
         );
         kk++;
       });
-      let list = (
-        <AtList>
-          <Image
-            className="news-img"
-            src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png"
-          />
-          {listitem}
-        </AtList>
-      );
+      let list = <AtList>{listitem}</AtList>;
       setDocumentList(list);
     }
     fechData();
