@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Image, Text, View } from "@tarojs/components";
-import { AtCard } from "taro-ui"
+import { AtCard } from "taro-ui";
 import "./index.less";
 import { requestVideo } from "../../../request/api";
 import Taro from "@tarojs/taro";
@@ -24,13 +24,12 @@ function LittleClass(props) {
       videoList.forEach((value, index, array) => {
         // 得到value.name,value.link,value.chap,value.sort,value.frameurl
         let newv = (
-          <view style={{ marginBottom:'10px' }} key={index}>
-            <AtCard
-              style={{ marginBottom:'10px' }}
-              title={value.name}
-            >
-              <Image src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
-            </AtCard>
+          <view className="littleclass-con" key={index}>
+            <Image
+              src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
+              className="littleclass-con-img"
+            />
+            <Text className="littleclass-con-text">{value.name}</Text>
           </view>
         );
         listitem.push(newv);
