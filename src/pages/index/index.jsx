@@ -73,10 +73,10 @@ export default function Index(props) {
         let newsli = (
           <View
             className="index-news"
-            style={{ backgroundImage: value.litpic }}
+            style={{ background: `url("${value.litpic}")` }}
             onClick={clickSwiper.bind(this, value.id)}
           >
-            {value.title}
+            <View className="news-tit">{value.title}</View>
           </View>
         );
         if (index === 0) {
@@ -105,8 +105,8 @@ export default function Index(props) {
             onClick={clickVideo.bind(this, value.sort)}
             key={kk}
           >
-            <Image src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
-            <Text>{value.name}</Text>
+            <Image className="video-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png" />
+            <Text className="video-tit">{value.name}</Text>
           </View>
         );
         listitem.push(newv);
@@ -131,15 +131,19 @@ export default function Index(props) {
             onClick={clickDocument.bind(this, value.link)}
             note={`版本${value.version}`}
             key={kk}
-          />
+          >
+            </AtListItem>
         );
         kk++;
       });
-      let list = <AtList>{listitem}</AtList>;
+      let list = <AtList><Image className="news-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png" />{listitem}</AtList>;
       setDocumentList(list);
     }
     fechData();
   }, []);
+  const scrollVideo = (value) =>{
+    console.log(value)
+  }
   return (
     <View className="index">
       <AtSearchBar
@@ -165,28 +169,35 @@ export default function Index(props) {
         data={[
           {
             image:
-              "https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png",
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E5%B0%8F%E8%AF%BE%E5%A0%82.png",
             value: "小课堂",
           },
           {
             image:
-              "https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png",
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3.png",
             value: "文档",
           },
           {
             image:
-              "https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png",
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%B0%E9%97%BB.png",
             value: "新闻",
           },
           {
             image:
-              "https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png",
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E7%BA%B3%E5%8D%9A%E7%89%B9.png",
             value: "纳博特",
           },
         ]}
         onClick={clickButton}
+        style={{marginTop: 20}}
       />
-      <ScrollView className="index-videos">{videoList}</ScrollView>
+      <View className="nbt-tit">纳博特小课堂
+      <Image className="more-img" src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png" />
+      </View>
+      <ScrollView scrollX={true} scrollWithAnimation onScroll={scrollVideo} className="index-videos">{videoList}</ScrollView>
+      <View className="nbt-tit">使用手册
+      <Image className="more-img" style={{left: "68%"}} src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/more.png" />
+      </View>
       <View className="index-document">{documentList}</View>
     </View>
   );
