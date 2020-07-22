@@ -38,6 +38,11 @@ export default function Index(props) {
           url: "/pages/subpage/document/index",
         });
         break;
+      case 2:
+        Taro.navigateTo({
+          url: "/pages/subpage/news/index",
+        });
+        break;
       default:
         break;
     }
