@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Swiper,
-  SwiperItem,
-  ScrollView,
-  Image,
-} from "@tarojs/components";
-import { AtButton, AtSearchBar, AtGrid, AtListItem, AtList } from "taro-ui";
+import { Image, Text, View } from "@tarojs/components";
 import "./index.less";
 import { requestVideo } from "../../../request/api";
 import Taro from "@tarojs/taro";
