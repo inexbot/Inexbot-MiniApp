@@ -24,8 +24,8 @@ export default {
   ],
   window: {
     backgroundTextStyle: "light",
-    navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: "WeChat",
-    navigationBarTextStyle: "black",
+    navigationBarBackgroundColor: "#6190E8",
+    navigationBarTitleText: "纳博特开放平台",
+    navigationBarTextStyle: "white",
   },
 };

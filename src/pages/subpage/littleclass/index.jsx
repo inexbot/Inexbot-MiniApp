@@ -8,12 +8,14 @@ import Taro from "@tarojs/taro";
 function LittleClass(props) {
   const [videoList, setVideoList] = useState(<Text>加载中</Text>);
   const clickVideo = (num) => {
-    console.log(num);
     Taro.navigateToMiniProgram({
       appId: "wx7564fd5313d24844",
       path: `pages/video/video?page=${num}&avid=80574679`,
     });
   };
+  useEffect(() => {
+    Taro.showShareMenu({ withShareTicket: true });
+  }, []);
   // 获取视频
   useEffect(() => {
     async function fechData() {
@@ -24,7 +26,11 @@ function LittleClass(props) {
       videoList.forEach((value, index, array) => {
         // 得到value.name,value.link,value.chap,value.sort,value.frameurl
         let newv = (
-          <view className="littleclass-con" key={index}>
+          <view
+            className="littleclass-con"
+            key={index}
+            onClick={clickVideo.bind(this, value.sort)}
+          >
             <Image
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
               className="littleclass-con-img"

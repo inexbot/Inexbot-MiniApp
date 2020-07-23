@@ -1,11 +1,14 @@
 import { Component } from "react";
 import "taro-ui/dist/style/index.scss";
+import Taro from "@tarojs/taro";
 import "./app.less";
 
 class App extends Component {
   componentDidMount() {}
 
-  componentDidShow() {}
+  componentDidShow() {
+    Taro.showShareMenu({ withShareTicket: true });
+  }
 
   componentDidHide() {}
 

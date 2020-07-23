@@ -7,25 +7,44 @@ import {
   ScrollView,
   Image,
 } from "@tarojs/components";
-import { AtButton, AtSearchBar, AtGrid, AtListItem, AtList } from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList } from "taro-ui";
 import "./index.less";
 import { requestNews, requestVideo, requestDocument } from "../../request/api";
 import Taro from "@tarojs/taro";
 
 export default function Index(props) {
-  const [searchBarValue, setSearchBarValue] = useState("");
-  const [news1, setNews1] = useState(<View className="index-news">新闻1</View>);
-  const [news2, setNews2] = useState(<View className="index-news">新闻2</View>);
-  const [news3, setNews3] = useState(<View className="index-news">新闻3</View>);
+  // const [searchBarValue, setSearchBarValue] = useState("");
+  const [news1, setNews1] = useState(
+    <AtActivityIndicator isOpened mode="center">
+      正在加载新闻
+    </AtActivityIndicator>
+  );
+  const [news2, setNews2] = useState(
+    <AtActivityIndicator isOpened mode="center">
+      正在加载新闻
+    </AtActivityIndicator>
+  );
+  const [news3, setNews3] = useState(
+    <AtActivityIndicator isOpened mode="center">
+      正在加载新闻
+    </AtActivityIndicator>
+  );
   const [videoList, setVideoList] = useState(
-    <View className="index-video-list">小课堂视频</View>
+    <AtActivityIndicator isOpened mode="center">
+      正在加载视频列表
+    </AtActivityIndicator>
   );
   const [documentList, setDocumentList] = useState(
-    <View className="index-document-list">手册</View>
+    <AtActivityIndicator isOpened mode="center">
+      正在加载手册列表
+    </AtActivityIndicator>
   );
-  const changeSearchBar = (value) => {
-    setSearchBarValue(value);
-  };
+  // const changeSearchBar = (value) => {
+  //   setSearchBarValue(value);
+  // };
+  useEffect(() => {
+    Taro.showShareMenu({ withShareTicket: true });
+  }, []);
   const clickButton = (item, index) => {
     switch (index) {
       case 0:
@@ -63,8 +82,10 @@ export default function Index(props) {
       url: "/pages/subpage/document/index",
     });
   };
-  const clickSwiper = (aid) => {
-    console.log(aid);
+  const clickSwiper = (id) => {
+    Taro.navigateTo({
+      url: `/pages/subpage/news/context?id=${id}`,
+    });
   };
   const clickDocument = (url) => {
     Taro.showLoading({
@@ -86,7 +107,6 @@ export default function Index(props) {
     });
   };
   const clickVideo = (num) => {
-    console.log(num);
     Taro.navigateToMiniProgram({
       appId: "wx7564fd5313d24844",
       path: `pages/video/video?page=${num}&avid=80574679`,
@@ -179,11 +199,11 @@ export default function Index(props) {
   };
   return (
     <View className="index">
-      <AtSearchBar
+      {/* <AtSearchBar
         showActionButton
         value={searchBarValue}
         onChange={changeSearchBar}
-      />
+      /> */}
       <Swiper
         className="test-h"
         indicatorColor="#999"

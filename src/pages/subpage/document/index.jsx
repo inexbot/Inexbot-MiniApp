@@ -33,6 +33,9 @@ function Document() {
       },
     });
   };
+  useEffect(() => {
+    Taro.showShareMenu({ withShareTicket: true });
+  }, []);
   // 文档
   useEffect(() => {
     async function fechData() {
@@ -48,6 +51,8 @@ function Document() {
             onClick={clickDocument.bind(this, value.link)}
             note={`版本${value.version}`}
             key={kk}
+            thumb="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%96%87%E6%A1%A3-icon.png"
+            arrow="right"
           />
         );
         kk++;

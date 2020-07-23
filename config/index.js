@@ -12,7 +12,12 @@ const config = {
   plugins: [],
   defineConstants: {},
   copy: {
-    patterns: [],
+    patterns: [
+      {
+        from: "src/sitemap.json",
+        to: "dist/sitemap.json",
+      },
+    ],
     options: {},
   },
   framework: "react",
