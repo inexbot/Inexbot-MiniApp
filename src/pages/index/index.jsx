@@ -6,14 +6,16 @@ import {
   SwiperItem,
   ScrollView,
   Image,
+  
 } from "@tarojs/components";
-import { AtActivityIndicator, AtGrid, AtListItem, AtList } from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar } from "taro-ui";
 import "./index.less";
+import axios from "axios";
 import { requestNews, requestVideo, requestDocument } from "../../request/api";
 import Taro from "@tarojs/taro";
 
 export default function Index(props) {
-  // const [searchBarValue, setSearchBarValue] = useState("");
+  const [searchBarValue, setSearchBarValue] = useState("");
   const [news1, setNews1] = useState(
     <AtActivityIndicator isOpened mode="center">
       正在加载新闻
@@ -39,9 +41,37 @@ export default function Index(props) {
       正在加载手册列表
     </AtActivityIndicator>
   );
-  // const changeSearchBar = (value) => {
-  //   setSearchBarValue(value);
-  // };
+  const changeSearchBar = (value) => {
+    // console.log(value)
+    setSearchBarValue(value);
+  };
+  // 点击搜索
+  const IptSearch = () => {
+    console.log('搜索')
+  }
+
+  useEffect(()=>{
+    const url = "https://hd215.api.yesapi.cn/";
+    const app_key = "A9B8F37512C199D5FE1BDC229CD9E36C";
+    wx.request({
+      method: "POST",
+      url: url,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      data: {
+        s: "App.SuperTable.SqlQuery",
+        database: "iu",
+        app_key: app_key,
+        model_name: "inexbot_faq",
+        where: "inexbot_faq",
+        sql:`select * from inexbot_faq where question1 like '%${searchBarValue}%' and question2 like '%${searchBarValue}%'`
+      },
+      success: function(res){
+        console.log(res,searchBarValue)
+      }
+    });
+
+  },[searchBarValue])
+
   useEffect(() => {
     Taro.showShareMenu({ withShareTicket: true });
   }, []);
@@ -199,12 +229,19 @@ export default function Index(props) {
   };
   return (
     <View className="index">
-      {/* <AtSearchBar
-        showActionButton
-        value={searchBarValue}
-        onChange={changeSearchBar}
-      /> */}
+      <View style={{ position:'relative' }}>
+        <AtSearchBar
+          showActionButton
+          value={searchBarValue}
+          onChange={changeSearchBar}
+          onActionClick={ IptSearch }
+        />
+        <View style={{ width:'300px',maxHeight:'200px',position:'absolute',zIndex:'2',background:'red',marginLeft:'20px',height:'200px',overflowX:'hidden' }}>
+          
+        </View>
+      </View>
       <Swiper
+        style={{ marginTop:'20px' }}
         className="test-h"
         indicatorColor="#999"
         indicatorActiveColor="#333"
