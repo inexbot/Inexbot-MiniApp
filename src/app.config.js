@@ -21,6 +21,11 @@ export default {
       name: "小课堂",
       pages: ["index"],
     },
+    {
+      root: "pages/subpage/SearchContent",
+      name: "搜索内容",
+      pages: ["index"],
+    }
   ],
   window: {
     backgroundTextStyle: "light",

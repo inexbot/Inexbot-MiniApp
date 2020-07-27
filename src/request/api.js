@@ -79,3 +79,21 @@ export function requestVideo(page, perpage) {
   });
   return res;
 }
+
+export function searchList(sContent){
+
+  const res = Taro.request({
+    method: "POST",
+    url: url,
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: {
+      s: "App.SuperTable.SqlQuery",
+      database: "iu",
+      app_key: app_key,
+      model_name: "inexbot_faq",
+      where: "inexbot_faq",
+      sql:`select * from inexbot_faq where title like '%${sContent}%' or Id like '%${sContent}%' or question1 like '%${sContent}%' or question2 like '%${sContent}%' or question3 like '%${sContent}%' or question4 like '%${sContent}%' or solution1 like '%${sContent}%' or solution2 like '%${sContent}%' or solution3 like '%${sContent}%' or solution4 like '%${sContent}%' `
+    },
+  });
+  return res;
+}
