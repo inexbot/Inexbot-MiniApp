@@ -9,7 +9,7 @@ import {
   Input,
   Button
 } from "@tarojs/components";
-import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar,AtButton , AtIcon} from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar} from "taro-ui";
 import "./index.less";
 import { requestNews, requestVideo, requestDocument, searchList, } from "../../request/api";
 import Taro from "@tarojs/taro";
@@ -17,7 +17,7 @@ import Taro from "@tarojs/taro";
 export default function Index(props) {
   const [ searchBarValue, setSearchBarValue] = useState("");
   const [ SearchData, setSearchData ] = useState('')
-  const [news1, setNews1] = useState(
+  const [ news1, setNews1] = useState(
     <AtActivityIndicator isOpened mode="center">
       正在加载新闻
     </AtActivityIndicator>
@@ -44,14 +44,10 @@ export default function Index(props) {
   );
   // 点击搜索
   const IptSearch = () => {
-    console.log(SearchData)
+    console.log(searchBarValue)
     Taro.navigateTo({
       url: '/pages/subpage/SearchContent/index',
     });
-    Taro.setStorage({
-      key:'List',
-      data:SearchData
-    })
   }
 
   useEffect(()=>{
@@ -59,6 +55,10 @@ export default function Index(props) {
       let documentSearch = searchList(searchBarValue);
       let documentList = (await documentSearch).data.data
       setSearchData(documentList)
+      Taro.setStorage({
+        key:'List',
+        data:documentList
+      })
     }
     searct()
   },[searchBarValue])
@@ -221,18 +221,11 @@ export default function Index(props) {
   return (
     <View className="index">
       <View style={{ position:'relative',height:'32px',display:'flex' }}>
-        {/* <AtSearchBar
-          showActionButton
-          value={searchBarValue}
-          onChange={changeSearchBar}
-          onActionClick={ IptSearch }
-          placeholder='问题搜索'
-        /> */}
+
         <Input placeholder='问题搜索' style={{ border:'solid 1px #919191',width:'75%',height:'30px',borderRadius:'10px',textIndent:'10px',paddingLeft:'20px',fontSize:'13px',}}
           onInput={( e )=>{  setSearchBarValue(e.target.value); }}
         > 
         </Input>
-        {/* <AtButton type='primary' size='small'  style={{ height:'20px',marginTop:'90px' }}>搜一下</AtButton> */}
         <Button value='搜一下' type='primary' style={{ height:'32px',width:'20%',fontSize:'12px',color:'',background:'#1890ff' }} onClick={ IptSearch } >
           搜一下
         </Button>
