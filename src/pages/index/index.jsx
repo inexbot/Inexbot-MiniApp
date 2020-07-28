@@ -143,7 +143,7 @@ export default function Index(props) {
         let newsli = (
           <View
             className="index-news"
-            style={{ background: `url("${value.litpic}")` }}
+            style={{ background: `url("${value.litpic}") no-repeat 0 `,backgroundSize:`cover` }}
             onClick={clickSwiper.bind(this, value.id)}
           >
             <View className="news-tit">{value.title}</View>
@@ -238,8 +238,7 @@ export default function Index(props) {
         </Button>
       </View>
       <Swiper
-        style={{ marginTop:'20px' }}
-        className="test-h"
+        className="index-swiper"
         indicatorColor="#999"
         indicatorActiveColor="#333"
         circular={true}
