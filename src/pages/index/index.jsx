@@ -6,11 +6,12 @@ import {
   SwiperItem,
   ScrollView,
   Image,
+  Input,
+  Button
 } from "@tarojs/components";
-import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar } from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar,AtButton , AtIcon} from "taro-ui";
 import "./index.less";
-import axios from "axios";
-import { requestNews, requestVideo, requestDocument, searchList } from "../../request/api";
+import { requestNews, requestVideo, requestDocument, searchList, } from "../../request/api";
 import Taro from "@tarojs/taro";
 
 export default function Index(props) {
@@ -41,13 +42,8 @@ export default function Index(props) {
       正在加载手册列表
     </AtActivityIndicator>
   );
-  const changeSearchBar = (value) => {
-    // console.log(value)
-    setSearchBarValue(value);
-  };
   // 点击搜索
   const IptSearch = () => {
-    // let searchContent = a
     console.log(SearchData)
     Taro.navigateTo({
       url: '/pages/subpage/SearchContent/index',
@@ -224,15 +220,22 @@ export default function Index(props) {
   };
   return (
     <View className="index">
-      <View style={{ position:'relative' }}>
-        <AtSearchBar
+      <View style={{ position:'relative',height:'12px',display:'flex', }}>
+        {/* <AtSearchBar
           showActionButton
           value={searchBarValue}
           onChange={changeSearchBar}
           onActionClick={ IptSearch }
-        />
-        {/* <View style={{ width:'300px',maxHeight:'200px',position:'absolute',zIndex:'2',background:'red',marginLeft:'20px',height:'200px',overflowX:'hidden' }}>
-        </View> */}
+          placeholder='问题搜索'
+        /> */}
+        <Input placeholder='问题搜索' style={{ border:'solid 1px #919191',width:'75%',height:'30px',borderRadius:'10px',textIndent:'10px',paddingLeft:'20px',fontSize:'13px',}}
+          onInput={( e )=>{  setSearchBarValue(e.target.value); }}
+        > 
+        </Input>
+        {/* <AtButton type='primary' size='small'  style={{ height:'20px',marginTop:'90px' }}>搜一下</AtButton> */}
+        <Button value='搜一下' type='primary' style={{ height:'32px',width:'20%',fontSize:'12px',color:'',background:'#1890ff' }} onClick={ IptSearch } >
+          搜一下
+        </Button>
       </View>
       <Swiper
         className="index-swiper"
