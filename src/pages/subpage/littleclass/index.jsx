@@ -31,11 +31,12 @@ function LittleClass(props) {
             key={index}
             onClick={clickVideo.bind(this, value.sort)}
           >
+            <Text className="littleclass-con-tit">{value.name}</Text>
             <Image
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
               className="littleclass-con-img"
             />
-            <Text className="littleclass-con-text">{value.name}</Text>
+            <br />
           </view>
         );
         listitem.push(newv);

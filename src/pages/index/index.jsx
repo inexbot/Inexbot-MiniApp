@@ -220,7 +220,7 @@ export default function Index(props) {
   };
   return (
     <View className="index">
-      <View style={{ position:'relative',height:'32px',display:'flex' }}>
+      <View style={{ position:'relative',height:'32px',display:'flex',margin: 6, }}>
         {/* <AtSearchBar
           showActionButton
           value={searchBarValue}
@@ -228,13 +228,12 @@ export default function Index(props) {
           onActionClick={ IptSearch }
           placeholder='问题搜索'
         /> */}
-        <Input placeholder='问题搜索' style={{ border:'solid 1px #919191',width:'75%',height:'30px',borderRadius:'10px',textIndent:'10px',paddingLeft:'20px',fontSize:'13px',}}
-          onInput={( e )=>{  setSearchBarValue(e.target.value); }}
+        <Input className="nbt-search" style={{ height:32,fontSize:13}} placeholder='问题搜索' onInput={( e )=>{  setSearchBarValue(e.target.value); }}
         > 
         </Input>
         {/* <AtButton type='primary' size='small'  style={{ height:'20px',marginTop:'90px' }}>搜一下</AtButton> */}
-        <Button value='搜一下' type='primary' style={{ height:'32px',width:'20%',fontSize:'12px',color:'',background:'#1890ff' }} onClick={ IptSearch } >
-          搜一下
+        <Button className="nbt-search-btn" type='primary' style={{ height:32,background:"#38a8fc",fontSize:12 }} onClick={ IptSearch } >
+          <Image style={{width:22,height:22,paddingTop:4}} src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/search.png" alt=""/>
         </Button>
       </View>
       <Swiper

@@ -63,6 +63,6 @@ function Document() {
     fechData();
   }, []);
 
-  return <View>{documentList}</View>;
+  return <View className="document">{documentList}</View>;
 }
 export default Document;

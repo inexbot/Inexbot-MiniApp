@@ -36,15 +36,22 @@ function News(props) {
         let day = date.getDate();
         let dd = `${year}-${month}-${day}`;
         let con = (
-          <view style={{ marginBottom: "10px" }} key={index + 1}>
-            <AtCard
+          <View style={{ marginBottom: "10px" }} key={index + 1}>
+            {/* <AtCard
               title={value.title}
               extra={dd}
               onClick={clickNews.bind(this, value.id)}
             >
               <Image src={value.litpic} />
-            </AtCard>
-          </view>
+            </AtCard> */}
+
+            <View onClick={clickNews.bind(this, value.id)} style={{display:flex}}>
+              <Image class="news-img" src={value.litpic} style={{width: 120,height: 120,borderRadius: 10,}}/>
+              <View class="news-title">{value.title} <span class="news-date">{dd}</span>
+              <p>简介</p>
+              </View>
+            </View>
+          </View>
         );
         nl.push(con);
       });
