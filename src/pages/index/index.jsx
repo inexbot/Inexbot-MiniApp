@@ -220,7 +220,7 @@ export default function Index(props) {
   };
   return (
     <View className="index">
-      <View style={{ position:'relative',height:'12px',display:'flex', }}>
+      <View style={{ position:'relative',height:'32px',display:'flex' }}>
         {/* <AtSearchBar
           showActionButton
           value={searchBarValue}
