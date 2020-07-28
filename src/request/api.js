@@ -4,7 +4,7 @@ const url = "https://hd215.api.yesapi.cn/";
 const app_key = "A9B8F37512C199D5FE1BDC229CD9E36C";
 
 export function requestNews(page, perpage) {
-  let where = '[["typeid", "=", "8"]]';
+  let where = '[["typeid", "=", "8"],["typeid","=","9"]]';
   let order = '["sortrank DESC"]';
   const res = Taro.request({
     url: url,
@@ -15,6 +15,7 @@ export function requestNews(page, perpage) {
       app_key: app_key,
       model_name: "dede_archives",
       where: where,
+      logic:"or",
       order: order,
       page: page,
       perpage: perpage,
