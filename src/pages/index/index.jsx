@@ -9,7 +9,7 @@ import {
   Input,
   Button
 } from "@tarojs/components";
-import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar,AtButton , AtIcon} from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar} from "taro-ui";
 import "./index.less";
 import { requestNews, requestVideo, requestDocument, searchList, } from "../../request/api";
 import Taro from "@tarojs/taro";
@@ -17,7 +17,7 @@ import Taro from "@tarojs/taro";
 export default function Index(props) {
   const [ searchBarValue, setSearchBarValue] = useState("");
   const [ SearchData, setSearchData ] = useState('')
-  const [news1, setNews1] = useState(
+  const [ news1, setNews1] = useState(
     <AtActivityIndicator isOpened mode="center">
       正在加载新闻
     </AtActivityIndicator>
@@ -44,14 +44,10 @@ export default function Index(props) {
   );
   // 点击搜索
   const IptSearch = () => {
-    console.log(SearchData)
+    console.log(searchBarValue)
     Taro.navigateTo({
       url: '/pages/subpage/SearchContent/index',
     });
-    Taro.setStorage({
-      key:'List',
-      data:SearchData
-    })
   }
 
   useEffect(()=>{
@@ -59,6 +55,10 @@ export default function Index(props) {
       let documentSearch = searchList(searchBarValue);
       let documentList = (await documentSearch).data.data
       setSearchData(documentList)
+      Taro.setStorage({
+        key:'List',
+        data:documentList
+      })
     }
     searct()
   },[searchBarValue])
