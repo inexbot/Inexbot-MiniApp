@@ -174,7 +174,17 @@ export default function Index(props) {
               className="video-img"
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
             />
-            <Text className="video-tit">{value.name}</Text>
+            <Text
+              className="video-tit"
+              style={{
+                maxWidth: "100px",
+                overflow: "hidden",
+                textOverflow: " ellipsis",
+                whiteSpace: "nowrapd",
+              }}
+            >
+              {value.name}
+            </Text>
           </View>
         );
         listitem.push(newv);
@@ -221,13 +231,6 @@ export default function Index(props) {
           margin: 6,
         }}
       >
-        {/* <AtSearchBar
-          showActionButton
-          value={searchBarValue}
-          onChange={changeSearchBar}
-          onActionClick={ IptSearch }
-          placeholder='问题搜索'
-        /> */}
         <Input
           className="nbt-search"
           style={{ height: 32, fontSize: 13 }}
@@ -235,10 +238,7 @@ export default function Index(props) {
           onInput={(e) => {
             setSearchBarValue(e.target.value);
           }}
-          onFocus={focusInput}
-          onBlur={blurInput}
         ></Input>
-        {/* <AtButton type='primary' size='small'  style={{ height:'20px',marginTop:'90px' }}>搜一下</AtButton> */}
         <Button
           className="nbt-search-btn"
           type="primary"
@@ -252,9 +252,27 @@ export default function Index(props) {
           />
         </Button>
       </View>
-      <View className="input-tips" style={{ display: inputTipsDisplay }}>
-        <Text>请输入想要搜索的问题</Text>
-        <Text>例：“”</Text>
+      <View
+        style={{
+          width: "85%",
+          height: 30,
+          padding: 20,
+          border: "1px solid #dadada",
+          background: "#fff",
+          margin: "0 auto",
+          boxShadow: "0 8px 16px rgba(180,180,180,0.4)",
+          zIndex: 999,
+        }}
+      >
+        <Text
+          style={{
+            color: "#999999",
+            lineHeight: 1.5,
+            display: inputTipsDisplay,
+          }}
+        >
+          1233333331
+        </Text>
       </View>
       <Swiper
         className="index-swiper"
