@@ -246,15 +246,16 @@ export default function Index(props) {
       </View>
       <View
         style={{
-          width: "85%",
-          height: 30,
-          padding: 20,
-          border: "1px solid #dadada",
-          background: "#fff",
-          margin: "0 auto",
-          boxShadow: "0 8px 16px rgba(180,180,180,0.4)",
+          width: "90%",
+          padding: "20px 2%",
+          borderRadius:10,
+          // border: "1px solid #dadada",
+          background: "rgba(255,255,255,0.95)",
+          boxShadow: "0 2px 6px rgba(10,10,10,0.3)",
           zIndex: 999,
           display: inputTipsDisplay,
+          position: "absolute",
+          left:"2%",
         }}
       >
         <Text
