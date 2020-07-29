@@ -26,7 +26,7 @@ function LittleClass(props) {
       videoList.forEach((value, index, array) => {
         // 得到value.name,value.link,value.chap,value.sort,value.frameurl
         let newv = (
-          <view
+          <View
             className="littleclass-con"
             key={index}
             onClick={clickVideo.bind(this, value.sort)}
@@ -36,8 +36,7 @@ function LittleClass(props) {
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
               className="littleclass-con-img"
             />
-            <br />
-          </view>
+          </View>
         );
         listitem.push(newv);
         kk++;

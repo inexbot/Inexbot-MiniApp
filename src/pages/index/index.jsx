@@ -273,7 +273,7 @@ export default function Index(props) {
             lineHeight: 1.5
           }}
         >
-          1233333331
+          请输入要搜索的问题或错误信息，如“FF32”、“开机图”、“转速超差”等
         </Text>
       </View>
       <Swiper
