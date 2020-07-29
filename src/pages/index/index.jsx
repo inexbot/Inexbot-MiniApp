@@ -238,6 +238,8 @@ export default function Index(props) {
           onInput={(e) => {
             setSearchBarValue(e.target.value);
           }}
+          onFocus={focusInput}
+          onBlur={blurInput}
         ></Input>
         <Button
           className="nbt-search-btn"
@@ -262,13 +264,13 @@ export default function Index(props) {
           margin: "0 auto",
           boxShadow: "0 8px 16px rgba(180,180,180,0.4)",
           zIndex: 999,
+          display: inputTipsDisplay,
         }}
       >
         <Text
           style={{
             color: "#999999",
-            lineHeight: 1.5,
-            display: inputTipsDisplay,
+            lineHeight: 1.5
           }}
         >
           1233333331
