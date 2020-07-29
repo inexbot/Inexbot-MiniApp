@@ -179,7 +179,7 @@ export default function Index(props) {
               className="video-img"
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
             />
-            <Text className="video-tit" style={{maxWidth:"100px",overflow:"hidden",textOverflow:" ellipsis",whiteSpace: "nowrapd"}}>{value.name}</Text>
+            <Text className="video-tit" style={{maxWidth:"40%",overflow:"hidden",textOverflow:" ellipsis",whiteSpace: "nowrapd"}}>{value.name}</Text>
           </View>
         );
         listitem.push(newv);
