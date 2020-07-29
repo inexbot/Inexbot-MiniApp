@@ -7,17 +7,17 @@ import {
   ScrollView,
   Image,
   Input,
-  Button
+  Button,
 } from "@tarojs/components";
-import { AtActivityIndicator, AtGrid, AtListItem, AtList, AtSearchBar} from "taro-ui";
+import { AtActivityIndicator, AtGrid, AtListItem, AtList } from "taro-ui";
 import "./index.less";
-import { requestNews, requestVideo, requestDocument, searchList, } from "../../request/api";
+import { requestNews, requestVideo, requestDocument } from "../../request/api";
 import Taro from "@tarojs/taro";
 
 export default function Index(props) {
-  const [ searchBarValue, setSearchBarValue] = useState("");
-  const [ SearchData, setSearchData ] = useState('')
-  const [ news1, setNews1] = useState(
+  const [searchBarValue, setSearchBarValue] = useState("");
+  const [inputTipsDisplay, setInputTipsDisplay] = useState("none");
+  const [news1, setNews1] = useState(
     <AtActivityIndicator isOpened mode="center">
       正在加载新闻
     </AtActivityIndicator>
@@ -44,24 +44,10 @@ export default function Index(props) {
   );
   // 点击搜索
   const IptSearch = () => {
-    console.log(searchBarValue)
     Taro.navigateTo({
-      url: '/pages/subpage/SearchContent/index',
+      url: `/pages/subpage/SearchContent/index?search=${searchBarValue}`,
     });
-  }
-
-  useEffect(()=>{
-    async function searct(){
-      let documentSearch = searchList(searchBarValue);
-      let documentList = (await documentSearch).data.data
-      setSearchData(documentList)
-      Taro.setStorage({
-        key:'List',
-        data:documentList
-      })
-    }
-    searct()
-  },[searchBarValue])
+  };
 
   useEffect(() => {
     Taro.showShareMenu({ withShareTicket: true });
@@ -133,6 +119,12 @@ export default function Index(props) {
       path: `pages/video/video?page=${num}&avid=80574679`,
     });
   };
+  const focusInput = () => {
+    setInputTipsDisplay("block");
+  };
+  const blurInput = () => {
+    setInputTipsDisplay("none");
+  };
   // 新闻
   useEffect(() => {
     async function fechData() {
@@ -143,7 +135,10 @@ export default function Index(props) {
         let newsli = (
           <View
             className="index-news"
-            style={{ background: `url("${value.litpic}") no-repeat 0 `,backgroundSize:`cover` }}
+            style={{
+              background: `url("${value.litpic}") no-repeat 0 `,
+              backgroundSize: `cover`,
+            }}
             onClick={clickSwiper.bind(this, value.id)}
           >
             <View className="news-tit">{value.title}</View>
@@ -215,20 +210,61 @@ export default function Index(props) {
     }
     fechData();
   }, []);
-  const scrollVideo = (value) => {
-    // console.log(value);
-  };
+  const scrollVideo = (value) => {};
   return (
     <View className="index">
-      <View style={{ position:'relative',height:'32px',display:'flex',margin: 6, }}>
-        <Input className="nbt-search" style={{ height:32,fontSize:13}} placeholder='问题搜索' onInput={( e )=>{  setSearchBarValue(e.target.value); }}> 
-        </Input>
-        <Button className="nbt-search-btn" type='primary' style={{ height:32,background:"#38a8fc",fontSize:12 }} onClick={ IptSearch } >
-          <Image style={{width:22,height:22,paddingTop:4}} src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/search.png" alt=""/>
+      <View
+        style={{
+          position: "relative",
+          height: "32px",
+          display: "flex",
+          margin: 6,
+        }}
+      >
+        <Input
+          className="nbt-search"
+          style={{ height: 32, fontSize: 13 }}
+          placeholder="问题搜索"
+          onInput={(e) => {
+            setSearchBarValue(e.target.value);
+          }}
+          onFocus={focusInput}
+          onBlur={blurInput}
+        ></Input>
+        <Button
+          className="nbt-search-btn"
+          type="primary"
+          style={{ height: 32, background: "#38a8fc", fontSize: 12 }}
+          onClick={IptSearch}
+        >
+          <Image
+            style={{ width: 22, height: 22, paddingTop: 4 }}
+            src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/search.png"
+            alt=""
+          />
         </Button>
       </View>
-      <View style={{width:"85%",height:30,padding:20,border:"1px solid #dadada",background:"#fff",margin:"0 auto",boxShadow:"0 8px 16px rgba(180,180,180,0.4)",zIndex:999}}>
-        <Text style={{color:"#999999",lineHeight:1.5}}>1233333331</Text>
+      <View
+        style={{
+          width: "85%",
+          height: 30,
+          padding: 20,
+          border: "1px solid #dadada",
+          background: "#fff",
+          margin: "0 auto",
+          boxShadow: "0 8px 16px rgba(180,180,180,0.4)",
+          zIndex: 999,
+          display: inputTipsDisplay,
+        }}
+      >
+        <Text
+          style={{
+            color: "#999999",
+            lineHeight: 1.5
+          }}
+        >
+          1233333331
+        </Text>
       </View>
       <Swiper
         className="index-swiper"
