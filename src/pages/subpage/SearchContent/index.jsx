@@ -6,7 +6,8 @@ import { AtCard, AtDivider } from "taro-ui";
 
 function SearchContent(props) {
   const [List, setList] = useState("");
-  const [StrBtn, setStrBtn] = useState(-1);
+  const [StrBtn, setstrbtn] = useState(-1);
+
   useEffect(() => {
     let searchValue = getCurrentInstance().router.params.search;
     async function fetchValue() {
@@ -28,18 +29,12 @@ function SearchContent(props) {
         // 把搜索到的数据循环出来
         documentList.sql.map((value, index) => {
           dataList.push(
-            <View key={index + 1} style={{ marginBottom: "10px" }}>
-              <AtCard
-                title={value.title}
-                onClick={() => {
-                  // 使用StrBtn来展示方案内容是否隐藏  判断StrBtn是否等于索引值如果相等的话隐藏方案内容 不相等的话展示放方案内容
-                  if (StrBtn === index) {
-                    setStrBtn(-1);
-                  } else {
-                    setStrBtn(index);
-                  }
-                }}
-              >
+            <View
+              key={index + 1}
+              style={{ marginBottom: "10px" }}
+              onClick={clickView.bind(this, index)}
+            >
+              <AtCard title={value.title}>
                 <View
                   key="1"
                   style={{
@@ -49,18 +44,14 @@ function SearchContent(props) {
                   }}
                 >
                   <Text style={{ display: "flex", fontSize: "16px" }}>
-                    {value.question1 === null
+                    {value.question1 === null || value.question1 === ""
                       ? "问题1 :暂无"
-                      : value.question1 === ""
-                      ? "问题1:暂无"
                       : StrBtn === index
-                      ? "问题1：" + value.question1
-                      : "问题1: " + value.question1}
+                      ? `问题1：${value.question1}`
+                      : `问题1：${value.question1}`}
                   </Text>
                   <Text style={{ display: "flex", color: "#999" }}>
-                    {value.solution1 === null
-                      ? "方案1:暂无"
-                      : value.solution1 === ""
+                    {value.solution1 === null || value.solution1 === ""
                       ? "方案1:暂无"
                       : StrBtn === index
                       ? "方案1: " + value.solution1
@@ -154,7 +145,14 @@ function SearchContent(props) {
     }
     fetchValue();
   }, []);
-
+  const clickView = (index) => {
+    // 使用StrBtn来展示方案内容是否隐藏  判断StrBtn是否等于索引值如果相等的话隐藏方案内容 不相等的话展示放方案内容
+    if (StrBtn === index) {
+      setstrbtn(-1);
+    } else {
+      setstrbtn(index);
+    }
+  };
   return <View>{List}</View>;
 }
 export default SearchContent;

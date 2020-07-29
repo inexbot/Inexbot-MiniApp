@@ -83,12 +83,13 @@ export function requestVideo(page, perpage) {
 
 export function searchList(sContent) {
   let newContent = sContent.split("");
-  let newContentLen = newContent.lenth;
+  let newContentLen = newContent.length;
   let queryContent = "%";
   for (let i = 0; i < newContentLen; i++) {
     queryContent += newContent[i];
     queryContent += "%";
   }
+  console.log(queryContent);
   const res = Taro.request({
     method: "POST",
     url: url,

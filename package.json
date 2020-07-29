@@ -43,8 +43,8 @@
     "axios": "^0.19.2",
     "dva": "^2.4.1",
     "parse5": "^6.0.0",
-    "react": "^16.10.0",
-    "react-dom": "^16.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "taro-ui": "3.0.0-alpha.3"
   },
   "devDependencies": {
