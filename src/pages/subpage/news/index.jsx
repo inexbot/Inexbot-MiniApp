@@ -45,10 +45,11 @@ function News(props) {
               <Image src={value.litpic} />
             </AtCard> */}
 
-            <View onClick={clickNews.bind(this, value.id)} style={{display:flex}}>
-              <Image class="news-img" src={value.litpic} style={{width: 120,height: 120,borderRadius: 10,}}/>
-              <View class="news-title">{value.title} <span class="news-date">{dd}</span>
-              <p>简介</p>
+            <View onClick={clickNews.bind(this, value.id)} style={{display:"flex",padding:10}}>
+              <Image class="news-img" src={value.litpic} style={{borderRadius: 4,maxHeight:64,maxWidth:114}}/>
+              <View style={{padding: "2px 10px"}}>
+                <View class="news-title" style={{fontSize:16}}>{value.title}</View>
+              <Text class="news-date" style={{fontSize:12}}>{dd}</Text>
               </View>
             </View>
           </View>
