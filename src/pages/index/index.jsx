@@ -179,7 +179,7 @@ export default function Index(props) {
               className="video-img"
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
             />
-            <Text className="video-tit">{value.name}</Text>
+            <Text className="video-tit" style={{maxWidth:"100px",overflow:"hidden",textOverflow:" ellipsis",whiteSpace: "nowrapd"}}>{value.name}</Text>
           </View>
         );
         listitem.push(newv);
@@ -221,20 +221,14 @@ export default function Index(props) {
   return (
     <View className="index">
       <View style={{ position:'relative',height:'32px',display:'flex',margin: 6, }}>
-        {/* <AtSearchBar
-          showActionButton
-          value={searchBarValue}
-          onChange={changeSearchBar}
-          onActionClick={ IptSearch }
-          placeholder='问题搜索'
-        /> */}
-        <Input className="nbt-search" style={{ height:32,fontSize:13}} placeholder='问题搜索' onInput={( e )=>{  setSearchBarValue(e.target.value); }}
-        > 
+        <Input className="nbt-search" style={{ height:32,fontSize:13}} placeholder='问题搜索' onInput={( e )=>{  setSearchBarValue(e.target.value); }}> 
         </Input>
-        {/* <AtButton type='primary' size='small'  style={{ height:'20px',marginTop:'90px' }}>搜一下</AtButton> */}
         <Button className="nbt-search-btn" type='primary' style={{ height:32,background:"#38a8fc",fontSize:12 }} onClick={ IptSearch } >
           <Image style={{width:22,height:22,paddingTop:4}} src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/search.png" alt=""/>
         </Button>
+      </View>
+      <View style={{width:"85%",height:30,padding:20,border:"1px solid #dadada",background:"#fff",margin:"0 auto",boxShadow:"0 8px 16px rgba(180,180,180,0.4)",zIndex:999}}>
+        <Text style={{color:"#999999",lineHeight:1.5}}>1233333331</Text>
       </View>
       <Swiper
         className="index-swiper"
