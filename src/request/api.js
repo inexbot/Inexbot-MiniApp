@@ -15,7 +15,7 @@ export function requestNews(page, perpage) {
       app_key: app_key,
       model_name: "dede_archives",
       where: where,
-      logic:"or",
+      logic: "or",
       order: order,
       page: page,
       perpage: perpage,
@@ -81,8 +81,14 @@ export function requestVideo(page, perpage) {
   return res;
 }
 
-export function searchList(sContent){
-
+export function searchList(sContent) {
+  let newContent = sContent.split("");
+  let newContentLen = newContent.lenth;
+  let queryContent = "%";
+  for (let i = 0; i < newContentLen; i++) {
+    queryContent += newContent[i];
+    queryContent += "%";
+  }
   const res = Taro.request({
     method: "POST",
     url: url,
@@ -93,7 +99,17 @@ export function searchList(sContent){
       app_key: app_key,
       model_name: "inexbot_faq",
       where: "inexbot_faq",
-      sql:`select * from inexbot_faq where title like '%${sContent}%' or Id like '%${sContent}%' or question1 like '%${sContent}%' or question2 like '%${sContent}%' or question3 like '%${sContent}%' or question4 like '%${sContent}%' or solution1 like '%${sContent}%' or solution2 like '%${sContent}%' or solution3 like '%${sContent}%' or solution4 like '%${sContent}%' `
+      sql: `select * from inexbot_faq 
+      where title like '${queryContent}' 
+      or Id like '${queryContent}' 
+      or question1 like '${queryContent}' 
+      or question2 like '${queryContent}' 
+      or question3 like '${queryContent}' 
+      or question4 like '${queryContent}' 
+      or solution1 like '${queryContent}' 
+      or solution2 like '${queryContent}' 
+      or solution3 like '${queryContent}' 
+      or solution4 like '${queryContent}' `,
     },
   });
   return res;
