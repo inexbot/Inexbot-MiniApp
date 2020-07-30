@@ -89,7 +89,6 @@ export function searchList(sContent) {
     queryContent += newContent[i];
     queryContent += "%";
   }
-  console.log(queryContent);
   const res = Taro.request({
     method: "POST",
     url: url,

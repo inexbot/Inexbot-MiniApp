@@ -7,19 +7,27 @@ import { AtCard, AtDivider } from "taro-ui";
 function SearchContent(props) {
   const [List, setList] = useState("");
   const [StrBtn, setstrbtn] = useState(-1);
-
+  const [listData, setListData] = useState("");
   useEffect(() => {
     let searchValue = getCurrentInstance().router.params.search;
     async function fetchValue() {
       let documentSearch = await searchList(searchValue);
-      let documentList = documentSearch.data.data;
+      setListData(documentSearch);
+    }
+    fetchValue();
+  }, []);
+  useEffect(() => {
+    if (listData === "") {
+      return;
+    } else {
+      let documentList = listData.data.data;
       let dataList = [];
       // 判断搜索到的的内容是否为空
       if (documentList.sql.length === 0 || documentList.err_code === 1) {
         setList(
           <View>
             <AtDivider
-              content="搜索到的内容为空"
+              content="对不起没有搜到结果哦，请联系我们的技术人员。"
               fontColor="#ff9900"
               lineColor="#ff9900"
             />
@@ -143,8 +151,7 @@ function SearchContent(props) {
         setList(dataList);
       }
     }
-    fetchValue();
-  }, []);
+  }, [listData, StrBtn]);
   const clickView = (index) => {
     // 使用StrBtn来展示方案内容是否隐藏  判断StrBtn是否等于索引值如果相等的话隐藏方案内容 不相等的话展示放方案内容
     if (StrBtn === index) {
