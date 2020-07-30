@@ -22,6 +22,16 @@ export default {
       pages: ["index"],
     },
     {
+      root: "pages/subpage/api",
+      name: "API",
+      pages: ["index"],
+    },
+    {
+      root: "pages/subpage/technical",
+      name: "技术参数",
+      pages: ["index","techcontext/servo"],
+    },
+    {
       root: "pages/subpage/SearchContent",
       name: "搜索内容",
       pages: ["index"],

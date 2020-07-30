@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Image, Text, View } from "@tarojs/components";
-import { AtCard } from "taro-ui";
+import { AtActivityIndicator } from "taro-ui";
 import "./index.less";
 import { requestVideo } from "../../../request/api";
 import Taro from "@tarojs/taro";
 
 function LittleClass(props) {
-  const [videoList, setVideoList] = useState(<Text>加载中</Text>);
+  const [videoList, setVideoList] = useState(
+    <AtActivityIndicator
+      isOpened
+      content="加载中"
+      mode="center"
+    ></AtActivityIndicator>
+  );
   const clickVideo = (num) => {
     Taro.navigateToMiniProgram({
       appId: "wx7564fd5313d24844",

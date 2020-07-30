@@ -71,6 +71,16 @@ export default function Index(props) {
         break;
       case 3:
         Taro.navigateTo({
+          url: "/pages/subpage/technical/index",
+        });
+        break;
+      case 4:
+        Taro.navigateTo({
+          url: "/pages/subpage/api/index",
+        });
+        break;
+      case 5:
+        Taro.navigateTo({
           url: "/pages/subpage/about/index",
         });
         break;
@@ -281,7 +291,8 @@ export default function Index(props) {
         <SwiperItem>{news3}</SwiperItem>
       </Swiper>
       <AtGrid
-        columnNum={4}
+        columnNum={3}
+        hasBorder={false}
         data={[
           {
             image:
@@ -300,12 +311,22 @@ export default function Index(props) {
           },
           {
             image:
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B0.png",
+            value: "技术参数",
+          },
+          {
+            image:
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/API.png",
+            value: "API",
+          },
+          {
+            image:
               "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/%E7%BA%B3%E5%8D%9A%E7%89%B9.png",
             value: "纳博特",
           },
         ]}
         onClick={clickButton}
-        style={{ marginTop: 20 }}
+        // style={{ marginTop: 10 }}
       />
       <View className="nbt-tit">
         纳博特小课堂
