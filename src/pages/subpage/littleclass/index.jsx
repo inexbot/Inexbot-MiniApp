@@ -20,7 +20,10 @@ function LittleClass(props) {
     });
   };
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   // 获取视频
   useEffect(() => {

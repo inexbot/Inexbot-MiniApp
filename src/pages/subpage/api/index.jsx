@@ -5,8 +5,11 @@ import Taro from "@tarojs/taro";
 
 function ApiContext(props) {
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
-  return <WebView src={`https://www.inexbot.com/ebook/`} />;
+  return <WebView src={`https://open.inexbot.com/`} />;
 }
 export default ApiContext;

@@ -6,7 +6,10 @@ import Taro, { getCurrentInstance } from "@tarojs/taro";
 function Context(props) {
   const [context, setContext] = useState(<Text>加载中</Text>);
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   useEffect(() => {
     let id = getCurrentInstance().router.params.id;

@@ -34,7 +34,10 @@ function Document() {
     });
   };
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   // 文档
   useEffect(() => {

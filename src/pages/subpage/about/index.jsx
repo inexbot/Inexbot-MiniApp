@@ -4,7 +4,10 @@ import Taro from "@tarojs/taro";
 
 function About() {
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   return <WebView src={`https://www.inexbot.com/inexbot.html`} />;
 }

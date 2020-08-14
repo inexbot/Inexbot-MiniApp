@@ -50,7 +50,10 @@ export default function Index(props) {
   };
 
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   const clickButton = (item, index) => {
     switch (index) {
@@ -184,7 +187,17 @@ export default function Index(props) {
               className="video-img"
               src="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/uploads/20200601/%E5%B0%8F%E8%AF%BE%E5%A0%82-1.png"
             />
-            <Text className="video-tit" style={{maxWidth:"40%",overflow:"hidden",textOverflow:" ellipsis",whiteSpace: "nowrapd"}}>{value.name}</Text>
+            <Text
+              className="video-tit"
+              style={{
+                maxWidth: "40%",
+                overflow: "hidden",
+                textOverflow: " ellipsis",
+                whiteSpace: "nowrapd",
+              }}
+            >
+              {value.name}
+            </Text>
           </View>
         );
         listitem.push(newv);
@@ -258,20 +271,20 @@ export default function Index(props) {
         style={{
           width: "90%",
           padding: "20px 2%",
-          borderRadius:10,
+          borderRadius: 10,
           // border: "1px solid #dadada",
           background: "rgba(255,255,255,0.95)",
           boxShadow: "0 2px 6px rgba(10,10,10,0.3)",
           zIndex: 999,
           display: inputTipsDisplay,
           position: "absolute",
-          left:"2%",
+          left: "2%",
         }}
       >
         <Text
           style={{
             color: "#999999",
-            lineHeight: 1.5
+            lineHeight: 1.5,
           }}
         >
           请输入要搜索的问题或错误信息，如“FF32”、“开机图”、“转速超差”等

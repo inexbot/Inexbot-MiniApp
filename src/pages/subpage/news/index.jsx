@@ -20,7 +20,10 @@ function News(props) {
     });
   };
   useEffect(() => {
-    Taro.showShareMenu({ withShareTicket: true });
+    Taro.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"],
+    });
   }, []);
   useEffect(() => {
     async function fechData() {
@@ -45,11 +48,22 @@ function News(props) {
               <Image src={value.litpic} />
             </AtCard> */}
 
-            <View onClick={clickNews.bind(this, value.id)} style={{display:"flex",padding:10}}>
-              <Image class="news-img" src={value.litpic} style={{borderRadius: 4,maxHeight:64,maxWidth:114}}/>
-              <View style={{padding: "2px 10px"}}>
-                <View class="news-title" style={{fontSize:16}}>{value.title}</View>
-              <Text class="news-date" style={{fontSize:12}}>{dd}</Text>
+            <View
+              onClick={clickNews.bind(this, value.id)}
+              style={{ display: "flex", padding: 10 }}
+            >
+              <Image
+                class="news-img"
+                src={value.litpic}
+                style={{ borderRadius: 4, maxHeight: 64, maxWidth: 114 }}
+              />
+              <View style={{ padding: "2px 10px" }}>
+                <View class="news-title" style={{ fontSize: 16 }}>
+                  {value.title}
+                </View>
+                <Text class="news-date" style={{ fontSize: 12 }}>
+                  {dd}
+                </Text>
               </View>
             </View>
           </View>
