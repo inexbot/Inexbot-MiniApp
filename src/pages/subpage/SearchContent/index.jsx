@@ -49,16 +49,30 @@ function SearchContent(props) {
                     borderTop: "solid 1px #F0F0F0",
                     borderBottom: "solid 1px #F0F0F0",
                     padding: "8px 0 8px 0",
+                    display:
+                      value.question1 === null || value.question1 === ""
+                        ? "none"
+                        : "block",
                   }}
                 >
-                  <Text style={{ display: "flex", fontSize: "16px" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      fontSize: "16px",
+                    }}
+                  >
                     {value.question1 === null || value.question1 === ""
                       ? "问题1 :暂无"
                       : StrBtn === index
                       ? `问题1：${value.question1}`
                       : `问题1：${value.question1}`}
                   </Text>
-                  <Text style={{ display: "flex", color: "#999" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      color: "#999",
+                    }}
+                  >
                     {value.solution1 === null || value.solution1 === ""
                       ? "方案1:暂无"
                       : StrBtn === index
@@ -71,9 +85,18 @@ function SearchContent(props) {
                   style={{
                     borderBottom: "solid 1px #F0F0F0",
                     padding: "8px 0 8px 0",
+                    display:
+                      value.question2 === null || value.question2 === ""
+                        ? "none"
+                        : "block",
                   }}
                 >
-                  <Text style={{ display: "flex", fontSize: "16px" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      fontSize: "16px",
+                    }}
+                  >
                     {StrBtn === index
                       ? value.question2 === null
                         ? "问题2:暂无"
@@ -82,7 +105,12 @@ function SearchContent(props) {
                         : "问题2: " + value.question2
                       : "问题2: " + value.question2}
                   </Text>
-                  <Text style={{ display: "flex", color: "#999" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      color: "#999",
+                    }}
+                  >
                     {value.solution2 === null
                       ? "方案2:暂无"
                       : value.solution2 === ""
@@ -97,9 +125,18 @@ function SearchContent(props) {
                   style={{
                     borderBottom: "solid 1px #F0F0F0",
                     padding: "8px 0 8px 0",
+                    display:
+                      value.question3 === null || value.question3 === ""
+                        ? "none"
+                        : "block",
                   }}
                 >
-                  <Text style={{ display: "flex", fontSize: "16px" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      fontSize: "16px",
+                    }}
+                  >
                     {StrBtn === index
                       ? value.question3 === null
                         ? "问题3:暂无"
@@ -108,7 +145,12 @@ function SearchContent(props) {
                         : "问题3: " + value.question3
                       : "问题3: " + value.question3}
                   </Text>
-                  <Text style={{ display: "flex", color: "#999" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      color: "#999",
+                    }}
+                  >
                     {value.solution3 === null
                       ? "方案3:暂无"
                       : value.solution3 === ""
@@ -123,9 +165,18 @@ function SearchContent(props) {
                   style={{
                     borderBottom: "solid 1px #F0F0F0",
                     padding: "8px 0 8px 0",
+                    display:
+                      value.question4 === null || value.question4 === ""
+                        ? "none"
+                        : "block",
                   }}
                 >
-                  <Text style={{ display: "flex", fontSize: "16px" }}>
+                  <Text
+                    style={{
+                      display: "flex",
+                      fontSize: "16px",
+                    }}
+                  >
                     {StrBtn === index
                       ? value.question4 === null
                         ? "问题4:暂无"
@@ -135,13 +186,13 @@ function SearchContent(props) {
                       : "问题4: " + value.question4}
                   </Text>
                   <Text style={{ display: "flex", color: "#999" }}>
-                    {value.solution3 === null
+                    {value.solution4 === null
                       ? "方案4:暂无"
-                      : value.solution3 === ""
-                      ? "暂无"
+                      : value.solution4 === ""
+                      ? "方案4：暂无"
                       : StrBtn === index
-                      ? "方案4: " + value.solution3
-                      : "方案4: " + value.solution3.slice(0, 20) + "..."}
+                      ? "方案4: " + value.solution4
+                      : "方案4: " + value.solution4.slice(0, 20) + "..."}
                   </Text>
                 </View>
               </AtCard>

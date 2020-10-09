@@ -1,4 +1,5 @@
 import React from "react";
+import Taro from "@tarojs/taro";
 import { AtListItem, AtList } from "taro-ui";
 import { View } from "@tarojs/components";
 import { useEffect } from "react";

@@ -3,6 +3,7 @@ import Taro from "@tarojs/taro";
 const url = "https://hd215.api.yesapi.cn/";
 const app_key = "A9B8F37512C199D5FE1BDC229CD9E36C";
 
+// 获取新闻列表
 export function requestNews(page, perpage) {
   let where = '[["typeid", "=", "8"],["typeid","=","9"]]';
   let order = '["sortrank DESC"]';
@@ -24,6 +25,7 @@ export function requestNews(page, perpage) {
   return res;
 }
 
+// 获取新闻内容
 export function requestNewsBody(aid) {
   let where = JSON.stringify([["aid", "=", aid]]);
   const res = Taro.request({
@@ -61,6 +63,25 @@ export function requestDocument(page, perpage) {
   });
   return res;
 }
+export function requestOtherDocument(params) {
+  let where = '[["typeid", "=", "63"]]';
+  let order = '["sort ASC"]';
+  const res = Taro.request({
+    url: url,
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: {
+      s: "App.SuperTable.FreeQuery",
+      app_key: app_key,
+      model_name: "dede_allmanual",
+      where: where,
+      order: order,
+      page: 1,
+      perpage: 50,
+    },
+  });
+  return res;
+}
 export function requestVideo(page, perpage) {
   let where = '[["typeid", "=", "60"]]';
   let order = '["sort ASC"]';
@@ -81,6 +102,7 @@ export function requestVideo(page, perpage) {
   return res;
 }
 
+// 在数据库里搜索的请求
 export function searchList(sContent) {
   let newContent = sContent.split("");
   let newContentLen = newContent.length;

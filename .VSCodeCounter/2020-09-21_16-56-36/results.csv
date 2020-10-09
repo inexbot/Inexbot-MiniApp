@@ -1,0 +1,35 @@
+"filename", "language", "JSON", "Less", "JavaScript", "JavaScript React", "HTML", "comment", "blank", "total"
+"e:\项目\Inexbot-MiniApp\src\app.config.js", "JavaScript", 0, 0, 46, 0, 0, 0, 1, 47
+"e:\项目\Inexbot-MiniApp\src\app.js", "JavaScript", 0, 0, 16, 0, 0, 1, 7, 24
+"e:\项目\Inexbot-MiniApp\src\app.less", "Less", 0, 0, 0, 0, 0, 0, 1, 1
+"e:\项目\Inexbot-MiniApp\src\index.html", "HTML", 0, 0, 0, 0, 19, 0, 1, 20
+"e:\项目\Inexbot-MiniApp\src\pages\index\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\index\index.jsx", "JavaScript React", 0, 0, 0, 361, 0, 10, 3, 374
+"e:\项目\Inexbot-MiniApp\src\pages\index\index.less", "Less", 0, 77, 0, 0, 0, 1, 12, 90
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\SearchContent\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 0, 3
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\SearchContent\index.jsx", "JavaScript React", 0, 0, 0, 212, 0, 3, 2, 217
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\SearchContent\index.less", "Less", 0, 0, 0, 0, 0, 0, 1, 1
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\about\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\about\index.jsx", "JavaScript React", 0, 0, 0, 13, 0, 0, 2, 15
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\api\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\api\index.jsx", "JavaScript React", 0, 0, 0, 13, 0, 1, 2, 16
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\document\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\document\index.jsx", "JavaScript React", 0, 0, 0, 131, 0, 3, 3, 137
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\document\index.less", "Less", 0, 4, 0, 0, 0, 0, 0, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\littleclass\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\littleclass\index.jsx", "JavaScript React", 0, 0, 0, 56, 0, 2, 2, 60
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\littleclass\index.less", "Less", 0, 29, 0, 0, 0, 3, 5, 37
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\news\context.jsx", "JavaScript React", 0, 0, 0, 22, 0, 0, 2, 24
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\news\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\news\index.jsx", "JavaScript React", 0, 0, 0, 70, 0, 7, 3, 80
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\news\index.less", "Less", 0, 12, 0, 0, 0, 6, 3, 21
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\index.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\index.jsx", "JavaScript React", 0, 0, 0, 38, 0, 0, 2, 40
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\index.less", "Less", 0, 0, 0, 0, 0, 0, 1, 1
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\techcontext\robot.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\techcontext\robot.jsx", "JavaScript React", 0, 0, 0, 33, 0, 0, 2, 35
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\techcontext\servo.config.js", "JavaScript", 0, 0, 3, 0, 0, 0, 1, 4
+"e:\项目\Inexbot-MiniApp\src\pages\subpage\technical\techcontext\servo.jsx", "JavaScript React", 0, 0, 0, 78, 0, 0, 2, 80
+"e:\项目\Inexbot-MiniApp\src\request\api.js", "JavaScript", 0, 0, 130, 0, 0, 3, 6, 139
+"e:\项目\Inexbot-MiniApp\src\sitemap.json", "JSON", 8, 0, 0, 0, 0, 0, 1, 9
+"Total", "-", 8, 122, 222, 1027, 19, 40, 73, 1511

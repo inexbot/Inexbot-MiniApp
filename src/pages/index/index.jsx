@@ -141,6 +141,7 @@ export default function Index(props) {
   // 新闻
   useEffect(() => {
     async function fechData() {
+      // 这边，所有查询都用的异步的方法
       let NewsRes = await requestNews(1, 3);
       let newslist = NewsRes.data.data.list;
       newslist.forEach((value, index, array) => {
@@ -287,7 +288,7 @@ export default function Index(props) {
             lineHeight: 1.5,
           }}
         >
-          请输入要搜索的问题或错误信息，如“FF32”、“开机图”、“转速超差”等
+          请输入要搜索的问题或错误信息，如“FF0C”、“开机图”、“通讯异常”等
         </Text>
       </View>
       <Swiper
