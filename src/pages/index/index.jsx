@@ -84,6 +84,11 @@ export default function Index(props) {
         break;
       case 5:
         Taro.navigateTo({
+          url: "/pages/subpage/faq/index",
+        });
+        break;
+      case 6:
+        Taro.navigateTo({
           url: "/pages/subpage/about/index",
         });
         break;
@@ -305,7 +310,7 @@ export default function Index(props) {
         <SwiperItem>{news3}</SwiperItem>
       </Swiper>
       <AtGrid
-        columnNum={3}
+        columnNum={4}
         hasBorder={false}
         data={[
           {
@@ -332,6 +337,11 @@ export default function Index(props) {
             image:
               "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/API.png",
             value: "API",
+          },
+          {
+            image:
+              "https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/FAQ.png",
+            value: "常见问题",
           },
           {
             image:

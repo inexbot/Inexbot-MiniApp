@@ -32,6 +32,11 @@ export default {
       pages: ["index", "techcontext/servo", "techcontext/robot"],
     },
     {
+      root: "pages/subpage/faq",
+      name: "常见问题",
+      pages: ["index", "list", "content"],
+    },
+    {
       root: "pages/subpage/SearchContent",
       name: "搜索内容",
       pages: ["index"],

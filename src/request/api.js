@@ -136,3 +136,64 @@ export function searchList(sContent) {
   });
   return res;
 }
+
+export function requestFAQTypeList() {
+  let where = '[["id", ">", "0"]]';
+  let order = '["id ASC"]';
+  const res = Taro.request({
+    url: url,
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: {
+      s: "App.SuperTable.FreeQuery",
+      app_key: app_key,
+      model_name: "inexbot_faq_type",
+      database: "iu",
+      where: where,
+      order: order,
+      page: 1,
+      perpage: 50,
+    },
+  });
+  return res;
+}
+export function requestFAQList(typeid) {
+  let where = `[["type", "=", ${typeid}]]`;
+  let order = '["id ASC"]';
+  const res = Taro.request({
+    url: url,
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: {
+      s: "App.SuperTable.FreeQuery",
+      app_key: app_key,
+      model_name: "inexbot_faq",
+      database: "iu",
+      where: where,
+      order: order,
+      page: 1,
+      perpage: 300,
+    },
+  });
+  return res;
+}
+export function requestFAQContent(id) {
+  let where = `[["id", "=", ${id}]]`;
+  let order = '["id ASC"]';
+  const res = Taro.request({
+    url: url,
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    data: {
+      s: "App.SuperTable.FreeQuery",
+      app_key: app_key,
+      model_name: "inexbot_faq",
+      database: "iu",
+      where: where,
+      order: order,
+      page: 1,
+      perpage: 50,
+    },
+  });
+  return res;
+}
