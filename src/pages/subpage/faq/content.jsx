@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Text, View } from "@tarojs/components";
+import { RichText, Text, View } from "@tarojs/components";
 import { getCurrentInstance } from "@tarojs/taro";
 import { requestFAQContent } from "../../../request/api";
+import "./content.less";
 
 function Card(props) {
   return (
     <View>
-      <View>{props.title}</View>
-      <View>{props.children}</View>
+      <View className="subtit">{props.title}</View>
+      <RichText className="subtit_con" nodes={props.children}/>
     </View>
   );
 }
@@ -27,29 +28,33 @@ function FAQContent() {
       setTitle(con.title);
       console.log(con);
       let _l = [];
+      let _solution1 = con.solution1.replace(/[\n\r]/g,"<br>")
       _l.push(
         <Card title={con.question1} key="1">
-          {con.solution1}
+          {_solution1}
         </Card>
       );
       if (con.question2 != null && con.question2 != "") {
+      let _solution2 = con.solution2.replace(/[\n\r]/g,"<br>")
         _l.push(
           <Card title={con.question2} key="2">
-            {con.solution2}
+            {_solution2}
           </Card>
         );
       }
       if (con.question3 != null && con.question3 != "") {
+      let _solution3 = con.solution3replace(/[\n\r]/g,"<br>")
         _l.push(
           <Card title={con.question3} key="3">
-            {con.solution3}
+            {_solution3}
           </Card>
         );
       }
       if (con.question4 != null && con.question4 != "") {
+      let _solution4 = con.solution4.replace(/[\n\r]/g,"<br>")
         _l.push(
           <Card title={con.question4} key="4">
-            {con.solution4}
+            {_solution4}
           </Card>
         );
       }
@@ -61,8 +66,8 @@ function FAQContent() {
     renderContent();
   }, []);
   return (
-    <View>
-      <View className="title" key="title">
+    <View style={{padding:"0 16px"}}>
+      <View className="title" key="title" style={{fontSize: 20}}>
         <Text>{title}</Text>
       </View>
       {contentCard}

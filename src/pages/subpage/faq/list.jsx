@@ -21,6 +21,7 @@ function FAQList() {
             key={value.Id}
             arrow="right"
             onClick={handleClickList.bind(this, value.Id)}
+            thumb="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/quesiton.png" 
           />
         );
       });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Taro from "@tarojs/taro";
-import { View } from "@tarojs/components";
+import { View,Image } from "@tarojs/components";
 import { AtList, AtListItem } from "taro-ui";
 import { requestFAQTypeList } from "../../../request/api";
 
@@ -21,6 +21,7 @@ function FAQIndex() {
             onClick={handleClickList.bind(this, value.id)}
             arrow="right"
             key={value.id}
+            thumb="https://forinexbotweb.oss-cn-shanghai.aliyuncs.com/other/inexbot-MiniApp/FAQ-icon.png"
           />
         );
       });
@@ -35,7 +36,9 @@ function FAQIndex() {
   };
   return (
     <View>
-      <AtList>{typeList}</AtList>
+      <AtList>
+        {typeList}
+        </AtList>
     </View>
   );
 }
